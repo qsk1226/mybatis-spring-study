@@ -25,4 +25,5 @@ public class MyBatisTest {
 		System.out.println(heroService.findAll());
 	}
 
+
 }

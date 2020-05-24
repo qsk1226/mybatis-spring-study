@@ -9,13 +9,13 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * TODO
+ * 英雄相关服务
  *
  * @author qinshengke
  * @since 2020/5/23 16:07
  **/
 @Service
-public class HeroServiceImpl implements HeroService{
+public class HeroServiceImpl implements HeroService {
 
 	@Autowired
 	private HeroMapper heroMapper;
@@ -24,7 +24,7 @@ public class HeroServiceImpl implements HeroService{
 	public List<Hero> findAll() {
 		HeroCondition heroCondition = new HeroCondition();
 		HeroCondition.Criteria criteria = heroCondition.createCriteria();
-		criteria.andEmailIsNull();
+
 		return heroMapper.selectByExample(heroCondition);
 	}
 }
