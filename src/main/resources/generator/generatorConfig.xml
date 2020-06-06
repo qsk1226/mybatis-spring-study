@@ -7,7 +7,7 @@
     <properties resource="generator/generator.properties"/>
 
     <!--MyBatis3 Mybatis3Simple 没有example这些个东西 flat 推荐、conditional、hierarchical-->
-    <context id="mysql" targetRuntime="MyBatis3" defaultModelType="flat">
+    <context id="mysql" targetRuntime="Mybatis3Simple" defaultModelType="flat">
         <!-- 自动识别数据库关键字，默认false，如果设置为true，根据SqlReservedWords中定义的关键字列表；
                    一般保留默认值，遇到数据库关键字（Java关键字），使用columnOverride覆盖
                 -->
@@ -123,7 +123,7 @@
             <property name="enableSubPackages" value="true"/>
 
             <!--可以为所有生成的接口添加一个父接口，但是MBG只负责生成，不负责检查-->
-            <!--<property name="rootInterface" value="com.goddess.knowledge.mapper.BaseMapper"/>-->
+            <!--<property name="rootInterface" value="com.shengke.sbd.mapper.BaseMapper"/>-->
 
         </javaClientGenerator>
 
@@ -182,28 +182,33 @@
               <columnOverride column="special_customer_reason" javaType="java.lang.Integer"/>
             </table>
         -->
-        <table tableName="t_hero" domainObjectName="Hero" enableSelectByExample="true"
-               enableCountByExample="true"
-               enableDeleteByExample="true"
-               enableUpdateByExample="true">
+        <!--<table  tableName="%"></table>-->
+
+        <table tableName="game_hero" domainObjectName="GameHero">
             <property name="useActualColumnNames" value="false"/>
             <property name="selectAllOrderByClause" value="id DESC"/>
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
 
-        <table tableName="t_role" domainObjectName="Role" enableSelectByExample="true"
-               enableCountByExample="true"
-               enableDeleteByExample="true"
-               enableUpdateByExample="true">
+        <table tableName="gamer" domainObjectName="Gamer">
             <property name="useActualColumnNames" value="false"/>
             <property name="selectAllOrderByClause" value="id DESC"/>
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
 
-        <table tableName="t_hero_role" domainObjectName="HeroRole" enableSelectByExample="true"
-               enableCountByExample="true"
-               enableDeleteByExample="true"
-               enableUpdateByExample="true">
+        <table tableName="occupation" domainObjectName="Occupation">
+            <property name="useActualColumnNames" value="false"/>
+            <property name="selectAllOrderByClause" value="id DESC"/>
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+
+        <table tableName="race" domainObjectName="Race">
+            <property name="useActualColumnNames" value="false"/>
+            <property name="selectAllOrderByClause" value="id DESC"/>
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+
+        <table tableName="race_occupation_relation" domainObjectName="RaceOccupationRelation">
             <property name="useActualColumnNames" value="false"/>
             <property name="selectAllOrderByClause" value="id DESC"/>
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.goddess.knowledge.mapper.RaceOccupationRelationMapper">
+  <resultMap id="BaseResultMap" type="com.goddess.knowledge.entity.RaceOccupationRelation">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="race_id" jdbcType="BIGINT" property="raceId" />
+    <result column="occupation_id" jdbcType="BIGINT" property="occupationId" />
+    <result column="position" jdbcType="VARCHAR" property="position" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from race_occupation_relation
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.goddess.knowledge.entity.RaceOccupationRelation">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into race_occupation_relation (race_id, occupation_id, position
+      )
+    values (#{raceId,jdbcType=BIGINT}, #{occupationId,jdbcType=BIGINT}, #{position,jdbcType=VARCHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.goddess.knowledge.entity.RaceOccupationRelation">
+    update race_occupation_relation
+    set race_id = #{raceId,jdbcType=BIGINT},
+      occupation_id = #{occupationId,jdbcType=BIGINT},
+      position = #{position,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, race_id, occupation_id, position
+    from race_occupation_relation
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, race_id, occupation_id, position
+    from race_occupation_relation
+    order by id DESC
+  </select>
+</mapper>

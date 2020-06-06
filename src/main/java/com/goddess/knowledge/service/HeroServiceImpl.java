@@ -1,8 +1,7 @@
 package com.goddess.knowledge.service;
 
-import com.goddess.knowledge.entity.Hero;
-import com.goddess.knowledge.entity.example.HeroCondition;
-import com.goddess.knowledge.mapper.HeroMapper;
+import com.goddess.knowledge.entity.GameHero;
+import com.goddess.knowledge.mapper.GameHeroMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,15 +15,16 @@ import java.util.List;
  **/
 @Service
 public class HeroServiceImpl implements HeroService {
-
 	@Autowired
-	private HeroMapper heroMapper;
+	private GameHeroMapper gameHeroMapper;
 
 	@Override
-	public List<Hero> findAll() {
-		HeroCondition heroCondition = new HeroCondition();
-		HeroCondition.Criteria criteria = heroCondition.createCriteria();
+	public List<GameHero> findAll() {
+		return gameHeroMapper.selectAll();
+	}
 
-		return heroMapper.selectByExample(heroCondition);
+	@Override
+	public int insertSeq(GameHero hero) {
+		return 0;
 	}
 }

@@ -2,17 +2,15 @@ package com.goddess.knowledge.entity;
 
 import java.io.Serializable;
 import lombok.Data;
-import lombok.ToString;
 
 /**
- * t_hero
+ * 用户 gamer
  * 
  * @author qinshengke
- * 2020-05-23
+ * 2020-06-06
  */
 @Data
-@ToString
-public class Hero implements Serializable {
+public class Gamer implements Serializable {
     /**
      * 主键
      */
@@ -54,7 +52,7 @@ public class Hero implements Serializable {
     private String address;
 
     /**
-     * t_hero
+     * gamer
      */
     private static final long serialVersionUID = 1L;
 }

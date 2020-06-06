@@ -4,30 +4,25 @@ import java.io.Serializable;
 import lombok.Data;
 
 /**
- * t_role
+ * 种族 race
  * 
  * @author qinshengke
- * 2020-05-23
+ * 2020-06-06
  */
 @Data
-public class Role implements Serializable {
+public class Race implements Serializable {
     /**
-     * 
+     * 主键
      */
     private Long id;
 
     /**
-     * 角色名称
+     * 种族名称
      */
-    private String roleName;
+    private String raceName;
 
     /**
-     * 备注
-     */
-    private String note;
-
-    /**
-     * t_role
+     * race
      */
     private static final long serialVersionUID = 1L;
 }

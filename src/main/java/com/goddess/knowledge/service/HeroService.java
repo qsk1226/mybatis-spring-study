@@ -1,6 +1,6 @@
 package com.goddess.knowledge.service;
 
-import com.goddess.knowledge.entity.Hero;
+import com.goddess.knowledge.entity.GameHero;
 
 import java.util.List;
 
@@ -11,5 +11,7 @@ import java.util.List;
  * @since 2020/5/23 16:07
  **/
 public interface HeroService {
-	List<Hero> findAll();
+	List<GameHero> findAll();
+
+	int insertSeq(GameHero hero);
 }

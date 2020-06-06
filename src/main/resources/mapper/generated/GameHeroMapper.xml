@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.goddess.knowledge.mapper.GameHeroMapper">
+  <resultMap id="BaseResultMap" type="com.goddess.knowledge.entity.GameHero">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="character_name" jdbcType="VARCHAR" property="characterName" />
+    <result column="sex" jdbcType="INTEGER" property="sex" />
+    <result column="gamer_id" jdbcType="BIGINT" property="gamerId" />
+    <result column="race_id" jdbcType="BIGINT" property="raceId" />
+    <result column="occupation_id" jdbcType="BIGINT" property="occupationId" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from game_hero
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.goddess.knowledge.entity.GameHero">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into game_hero (character_name, sex, gamer_id, 
+      race_id, occupation_id)
+    values (#{characterName,jdbcType=VARCHAR}, #{sex,jdbcType=INTEGER}, #{gamerId,jdbcType=BIGINT}, 
+      #{raceId,jdbcType=BIGINT}, #{occupationId,jdbcType=BIGINT})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.goddess.knowledge.entity.GameHero">
+    update game_hero
+    set character_name = #{characterName,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=INTEGER},
+      gamer_id = #{gamerId,jdbcType=BIGINT},
+      race_id = #{raceId,jdbcType=BIGINT},
+      occupation_id = #{occupationId,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, character_name, sex, gamer_id, race_id, occupation_id
+    from game_hero
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, character_name, sex, gamer_id, race_id, occupation_id
+    from game_hero
+    order by id DESC
+  </select>
+</mapper>
