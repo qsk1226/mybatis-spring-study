@@ -1,6 +1,9 @@
 package com.goddess.knowledge.mapper;
 
 import com.goddess.knowledge.entity.GameHero;
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
+
 import java.util.List;
 
 /**
@@ -9,6 +12,7 @@ import java.util.List;
  * @author qinshengke
  * 2020-06-06
  */
+
 public interface GameHeroMapper {
     /**
      * 根据主键删除数据库的记录

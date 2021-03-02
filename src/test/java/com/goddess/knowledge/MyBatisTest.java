@@ -1,5 +1,6 @@
 package com.goddess.knowledge;
 
+import com.goddess.knowledge.mapper.GameHeroMapper;
 import com.goddess.knowledge.service.HeroService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,13 +18,16 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ContextConfiguration("classpath:spring.xml")
 public class MyBatisTest {
 
-	@Autowired
-	private HeroService heroService;
+	/*@Autowired
+	private HeroService heroService;*/
+
+	/*@Autowired
+	private GameHeroMapper gameHeroMapper;
 
 	@Test
 	public void findAllTest() {
-		System.out.println(heroService.findAll());
-	}
+		System.out.println(gameHeroMapper.selectAll());
+	}*/
 
 
 }

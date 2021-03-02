@@ -1,6 +1,7 @@
 package com.goddess.knowledge.service;
 
 import com.goddess.knowledge.entity.GameHero;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
